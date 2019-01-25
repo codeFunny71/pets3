@@ -15,6 +15,9 @@ $f3 = Base::instance();
 //Turn on fat free error reporting
 $f3->set('DEBUG', 3);
 
+
+$f3->set('colors', array('pink', 'green', 'blue'));
+
 ////Define route
 $f3->route('GET /',
     function() {
