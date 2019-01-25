@@ -35,10 +35,13 @@
 
                 <div class="col-sm-4">
                     <select class="form-control" name="color" id="color">
-                        <option>purple</option>
-                        <option>pink</option>
-                        <option>green</option>
-                        <option>blue</option>
+                        <option>--select a color--</option>
+                        <repeat group="{{@colors}}" value="{{@colorOption}}">
+                            <option>{{@colorOption}}</option>
+                        </repeat>
+                        <!--<option>pink</option>-->
+                        <!--<option>green</option>-->
+                        <!--<option>blue</option>-->
                     </select>
                 </div>
             </div>

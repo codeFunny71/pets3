@@ -72,12 +72,13 @@ $f3->route('POST /form2',
     function() {
         $_SESSION['animal'] = $_POST['animal'];
         //echo "animal: ".$_SESSION['animal'];
-        $view = new View();
+        //$view = new View();
+        $template = new Template();
 //        echo '<pre>';
 //        print_r($_SESSION);
 //        print_r($_POST);
 //        echo '</pre>';
-        echo $view->render('views/form2.html');
+        echo $template->render('views/form2.html');
     });
 
 $f3->route('POST /results',
