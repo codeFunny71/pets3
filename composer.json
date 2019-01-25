@@ -1,0 +1,16 @@
+{
+  "name": "328/pets2",
+  "authors": [
+    {
+      "name": "Marcus Absher",
+      "email": "mabsher@mail.greenriver.edu"
+    },
+    {
+      "name":"Guangpeng Wu",
+      "email":"Gwu2@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
