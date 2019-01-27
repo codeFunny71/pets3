@@ -63,9 +63,9 @@ $f3->route('GET /@animal', function($f3,$params){
 });
 
 //define route order
-$f3->route('GET /order', function(){
-    $view=new View();
-    echo $view->render('views/form1.html');
+$f3->route('GET|POST /order', function(){
+	$template=new Template();
+    echo $template->render('views/form1.html');
 });
 
 $f3->route('POST /form2',
