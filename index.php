@@ -18,6 +18,9 @@ $f3->set('DEBUG', 3);
 
 $f3->set('colors', array('pink', 'green', 'blue'));
 
+//
+require_once('model/validation-functions.php');
+
 ////Define route
 $f3->route('GET /',
     function() {
