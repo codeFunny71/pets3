@@ -66,10 +66,27 @@ $f3->route('GET /@animal', function($f3,$params){
 });
 
 //define route order
-$f3->route('GET|POST /order', function(){
-	$template=new Template();
-    echo $template->render('views/form1.html');
-});
+
+	$f3->route('GET|POST /order',
+		function($f3)
+		{
+			$_SESSION = array();
+			if (isset($_POST['animal']))
+			{
+				$animal = $_POST['animal'];
+				if (validText($animal))
+				{
+					$_SESSION['animal'] = $animal;
+					$f3->reroute('/form2');
+				}
+				else
+				{
+					$f3->set("errors['animal']", "Please enter an animal.");
+				}
+			}
+			$template = new Template();
+			echo $template->render('views/form1.html');
+		});
 
 $f3->route('GET|POST /form2',
     function() {
