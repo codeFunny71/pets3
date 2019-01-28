@@ -10,7 +10,7 @@ function validColor($color){
     return in_array($color, $f3->get('colors'));
 }
 
-function validString($animal){
+function validText($animal){
    // global $f3;
     if (empty($valid)){
         echo "Enter an animal";
