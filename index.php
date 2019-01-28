@@ -68,7 +68,7 @@ $f3->route('GET|POST /order', function(){
     echo $template->render('views/form1.html');
 });
 
-$f3->route('POST /form2',
+$f3->route('GET|POST /form2',
     function() {
         $_SESSION['animal'] = $_POST['animal'];
         //echo "animal: ".$_SESSION['animal'];
