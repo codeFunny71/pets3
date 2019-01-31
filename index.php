@@ -18,6 +18,7 @@ $f3->set('DEBUG', 3);
 
 $f3->set('colors', array('pink', 'green', 'blue'));
 
+
 //
 require_once('model/validation-functions.php');
 
@@ -89,15 +90,20 @@ $f3->route('GET /@animal', function($f3,$params){
 		});
 
 $f3->route('GET|POST /form2',
-    function() {
-        $_SESSION['animal'] = $_POST['animal'];
-        //echo "animal: ".$_SESSION['animal'];
-        //$view = new View();
+    function($f3) {
+        $color = $_POST['colors'];
+        $validColors = ['pink', 'green', 'blue'];
+        if (in_array($color, $validColors)) {
+            $_SESSION['color'] = $color;
+            $f3->reroute('/results');
+        }
+//        else
+//        {
+//            $f3->set("errors['color']", "Please enter a color.");
+//        }
+
         $template = new Template();
-//        echo '<pre>';
-//        print_r($_SESSION);
-//        print_r($_POST);
-//        echo '</pre>';
+
         echo $template->render('views/form2.html');
     });
 
