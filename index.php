@@ -104,10 +104,10 @@ $f3->route('GET|POST /form2',
 
 
         //$f3->set('colors', $colors);
-        if (in_array($color, $colors)) {
-            $_SESSION['color'] = $color;
-            $f3->reroute('/results');
-        }
+//        if (in_array($color, $colors)) {
+//            $_SESSION['color'] = $color;
+//            $f3->reroute('/results');
+//        }
 //        else
 //        {
 //            $f3->set("errors['color']", "Please enter a color.");
