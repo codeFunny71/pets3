@@ -94,40 +94,30 @@ $f3->route('GET|POST /form2',
 
 
         if(isset($_POST['color'])){
-            $color = $_POST['colors'];
+            $color = ($_POST['color']);
             if(validColor($color)) {
                 $_SESSION['color'] = $color;
+                $f3->reroute('/results');
             }else{
                 $f3->set("error['color']", "Please select a color");
               }
             }
-
-
-        //$f3->set('colors', $colors);
-//        if (in_array($color, $colors)) {
-//            $_SESSION['color'] = $color;
-//            $f3->reroute('/results');
-//        }
-//        else
-//        {
-//            $f3->set("errors['color']", "Please enter a color.");
-//        }
 
         $template = new Template();
 
         echo $template->render('views/form2.html');
     });
 
-$f3->route('POST /results',
+$f3->route('GET|POST /results',
     function($f3) {
-        $_SESSION['color'] = $_POST['color'];
+
         //Create global variables
         $f3->set('animal', $_SESSION['animal']);
         $f3->set('color', $_SESSION['color']);
         $f3->set('sound', $_SESSION['sound']);
         //load a page using a Template
         $template = new Template();
-//        print_r($_SESSION);
+        //print_r($_SESSION);
         echo $template->render('views/results.html');
     });
 

@@ -34,13 +34,11 @@
                        for="color">Color</label>
 
                 <div class="col-sm-4">
-                    <check if="{{ isset(@errors['color'])}}">
-                        <p>{{ @errors['color'] }}</p></check>
+
                     <select class="form-control" name="color" id="color">
                         <option>--select a color--</option>
                         <repeat group="{{@colors}}" value="{{@colorOption}}">
-                            <option>
-                                <check if="{{ @colorOption == @color }}">selected</check> >{{@colorOption}}</option>
+                            <option value="{{@colorOption}}"> {{@colorOption}}</option>
                         </repeat>
                         <!--<option>pink</option>-->
                         <!--<option>green</option>-->
