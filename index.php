@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 //Require autoload
 require_once('vendor/autoload.php');
-
+require_once('model/validation-functions.php');
 $sound = "cluck";
 $_SESSION['sound'] = $sound;
 //create an instance of the Base class
@@ -16,11 +16,11 @@ $f3 = Base::instance();
 $f3->set('DEBUG', 3);
 
 
+//$colors = array('pink', 'green', 'blue');
 $f3->set('colors', array('pink', 'green', 'blue'));
 
-
 //
-require_once('model/validation-functions.php');
+
 
 ////Define route
 $f3->route('GET /',
@@ -91,9 +91,20 @@ $f3->route('GET /@animal', function($f3,$params){
 
 $f3->route('GET|POST /form2',
     function($f3) {
-        $color = $_POST['colors'];
-        $validColors = ['pink', 'green', 'blue'];
-        if (in_array($color, $validColors)) {
+
+
+        if(isset($_POST['color'])){
+            $color = $_POST['colors'];
+            if(validColor($color)) {
+                $_SESSION['color'] = $color;
+            }else{
+                $f3->set("error['color']", "Please select a color");
+              }
+            }
+
+
+        //$f3->set('colors', $colors);
+        if (in_array($color, $colors)) {
             $_SESSION['color'] = $color;
             $f3->reroute('/results');
         }

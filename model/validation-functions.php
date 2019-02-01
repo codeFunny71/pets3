@@ -12,7 +12,7 @@ function validColor($color){
 
 function validText($animal){
    // global $f3;
-    if (empty($valid)){
+    if (empty($animal)){
         echo "Enter an animal";
         return false;
     }
